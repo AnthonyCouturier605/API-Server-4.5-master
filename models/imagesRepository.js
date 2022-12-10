@@ -1,5 +1,5 @@
 const ImageFilesRepository = require("./imageFilesRepository.js");
-//const UsersRepository = require("./usersRepository");
+const UsersRepository = require("./usersRepository");
 const ImageModel = require("./image.js");
 const utilities = require("../utilities");
 const HttpContext = require("../httpContext").get();
