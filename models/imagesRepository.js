@@ -10,13 +10,13 @@ module.exports = class ImagesRepository extends require("./repository") {
     super(new ImageModel(), true /* cached */);
     this.setBindExtraDataMethod(this.bindImageURL);
     const UsersRepository = require("./usersRepository.js");//Donne des erreurs sur Glitch si je le require en haut
-    this._UsersRepository = new UsersRepository();
+    this.UsersRepository = new UsersRepository();
   }
   bindImageURL(image) {
     if (image) {
       let bindedImage = { ...image };
       let userId = bindedImage.UserId;
-      let user =  this._UsersRepository.get(userId);
+      let user =  this.UsersRepository.get(userId);
 
       if (image["GUID"] != "") {
         bindedImage["OriginalURL"] =
