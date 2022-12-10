@@ -1,5 +1,4 @@
 const ImagesRepository = require("../models/imagesRepository");
-const UsersRepository = require("../models/usersRepository");
 const TokenManager = require("../tokenManager");
 module.exports = class ImagesController extends require("./Controller") {
   constructor(HttpContext) {
