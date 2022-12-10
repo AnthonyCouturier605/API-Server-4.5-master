@@ -57,7 +57,7 @@ module.exports = class UsersRepository extends require("./repository") {
   remove(id) {
     let foundUser = super.get(id);
     if (foundUser) {
-      const ImagesRepository = require("./ImagesRepository.js"); //Quand je le met en haut, glitch ne marche pas
+      const ImagesRepository = require("./imagesRepository.js"); //Quand je le met en haut, glitch ne marche pas
       let imagesRepos = new ImagesRepository();
       let images = imagesRepos.getAll();
 
