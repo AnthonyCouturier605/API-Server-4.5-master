@@ -1,5 +1,5 @@
-//const server = "https://202038288-anthonycouturier-pfi.glitch.me";
-const server = "http://localhost:5000";
+const server = "https://202038288-anthonycouturier-pfi.glitch.me";
+//const server = "http://localhost:5000";
 const apiBaseURL = server + "/api/images";
 
 function HEAD(successCallBack, errorCallBack) {

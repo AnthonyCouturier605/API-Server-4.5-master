@@ -1,5 +1,5 @@
 const ImageFilesRepository = require("./imageFilesRepository.js");
-const ImagesRepository = require("./ImagesRepository.js");
+//const ImagesRepository = require("./ImagesRepository.js");
 const UserModel = require("./user.js");
 const utilities = require("../utilities");
 const HttpContext = require("../httpContext").get();
@@ -57,6 +57,7 @@ module.exports = class UsersRepository extends require("./repository") {
   remove(id) {
     let foundUser = super.get(id);
     if (foundUser) {
+      const ImagesRepository = require("./ImagesRepository.js"); //Quand je le met en haut, glitch ne marche pas
       let imagesRepos = new ImagesRepository();
       let images = imagesRepos.getAll();
 
