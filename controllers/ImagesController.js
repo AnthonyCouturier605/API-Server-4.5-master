@@ -3,7 +3,7 @@ const UsersRepository = require("../models/usersRepository");
 const TokenManager = require("../tokenManager");
 module.exports = class ImagesController extends require("./Controller") {
   constructor(HttpContext) {
-    super(HttpContext,new ImagesRepository(new UsersRepository()),false,true);
+    super(HttpContext,new ImagesRepository(),false,true);
   }
 
   post(data) {
