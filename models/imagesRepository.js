@@ -1,5 +1,5 @@
 const ImageFilesRepository = require("./imageFilesRepository.js");
-//const UsersRepository = require("./usersRepository.js");
+const UsersRepository = require("./usersRepository.js");
 const ImageModel = require("./image.js");
 const utilities = require("../utilities");
 const HttpContext = require("../httpContext").get();
@@ -9,7 +9,7 @@ module.exports = class ImagesRepository extends require("./repository") {
   constructor() {
     super(new ImageModel(), true /* cached */);
     this.setBindExtraDataMethod(this.bindImageURL);
-    const UsersRepository = require("./usersRepository.js");//Donne des erreurs sur Glitch si je le require en haut
+    //const UsersRepository = require("./usersRepository.js");//Donne des erreurs sur Glitch si je le require en haut
     this.UsersRepository = new UsersRepository();
   }
   bindImageURL(image) {
