@@ -1,21 +1,22 @@
 const ImageFilesRepository = require("./imageFilesRepository.js");
-//const UsersRepository = require("./usersRepository");
+//const UsersRepository = require("./usersRepository.js");
 const ImageModel = require("./image.js");
 const utilities = require("../utilities");
 const HttpContext = require("../httpContext").get();
 const CollectionFilter = require("./collectionFilter.js");
 
 module.exports = class ImagesRepository extends require("./repository") {
-  constructor(UsersRepository) {
+  constructor() {
     super(new ImageModel(), true /* cached */);
     this.setBindExtraDataMethod(this.bindImageURL);
-    this.UsersRepository = UsersRepository;
+    const UsersRepository = require("./usersRepository.js");//Donne des erreurs sur Glitch si je le require en haut
+    this._UsersRepository = new UsersRepository();
   }
   bindImageURL(image) {
     if (image) {
       let bindedImage = { ...image };
       let userId = bindedImage.UserId;
-      let user = this.UsersRepository.get(userId);
+      let user =  this._UsersRepository.get(userId);
 
       if (image["GUID"] != "") {
         bindedImage["OriginalURL"] =

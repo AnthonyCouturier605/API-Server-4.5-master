@@ -8,7 +8,7 @@ module.exports = class UsersRepository extends require("./repository") {
   constructor() {
     super(new UserModel(), true);
     this.setBindExtraDataMethod(this.bindAvatarURL);
-    this.ImagesRepository = new ImagesRepository(this);
+    // this.ImagesRepository = new ImagesRepository();
   }
   bindAvatarURL(user) {
     if (user) {
@@ -57,11 +57,12 @@ module.exports = class UsersRepository extends require("./repository") {
   remove(id) {
     let foundUser = super.get(id);
     if (foundUser) {
-      let images = this.ImagesRepository.getAll();
+      let imagesRepos = new ImagesRepository();
+      let images = imagesRepos.getAll();
 
       images.forEach((image) => {
         if (image.UserId == id) {
-          this.ImagesRepository.remove(image.Id);
+          imagesRepos.remove(image.Id);
         }
       });
       ImageFilesRepository.removeImageFile(foundUser["AvatarGUID"]);
