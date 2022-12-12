@@ -969,6 +969,8 @@
             resetUserForm();
 
             $("#password_input").prop('required', true);
+            $("#confirmation_input").prop('required', true);
+            
             ImageUploader.imageRequired('avatar', true);
 
             $("#userDig").dialog('option', 'title', "Inscription");
@@ -981,6 +983,8 @@
             // GET_ID(e.target.getAttribute("imageid"), imageToForm, error);
 
             $("#password_input").prop('required', false);
+            $("#confirmation_input").prop('required', false);
+            
             ImageUploader.imageRequired('avatar', false);
 
             let userId = RetrieveUserFromStorage().Id;
@@ -1144,6 +1148,8 @@
             $("#registerCmd").show();
 
             $("#newImageCmd").hide();
+
+            
         }
         function RefreshConnectionOptionsFromStorage() {
 
