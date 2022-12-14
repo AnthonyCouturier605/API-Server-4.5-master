@@ -1010,6 +1010,7 @@
                 OpenVerificationDialog(newUser);
             }
             showConnectedOptions(newUser);
+            getImagesList(true);
         }
         // function verifyError(status){
         //     $("#verifyError").show();
@@ -1029,7 +1030,7 @@
 
         function loggedIn(token) {
             sessionStorage.setItem('token', token.Access_token);
-
+            holdCheckETag = false;
             let rememberMe = $("#remember_me_checkbox").is(':checked');
             if (rememberMe) {
                 RememberMe();
@@ -1179,6 +1180,7 @@
             sessionStorage.removeItem("token");
             $("#userDig").dialog("close");
             RefreshConnectionOptionsFromStorage();
+            holdCheckETag = false;
         }
 
         function ChangeVerifiedInStorage(){
