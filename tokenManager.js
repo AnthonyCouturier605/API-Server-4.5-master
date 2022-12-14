@@ -60,6 +60,7 @@ class TokenManager {
     }
     return false;
   }
+  //--------------------------------
   static getTokenFromRequest(req) {
     if (req.headers["authorization"] != undefined) {
       let token = req.headers["authorization"].replace("Bearer ", "");
